@@ -1,40 +1,21 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Home from 'pages/Home';
+import Movies from 'pages/Movies';
+import MovieDetails from 'pages/MoviesDetails';
+import Cast from 'pages/Cast';
+import Reviews from 'pages/Reviews';
+import Layout from './Layout';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        backgroundColor: '#3f51b5',
-      }}
-    >
-      <ul
-        style={{
-          display: 'flex',
-          listStyle: 'none',
-          gap: '30px',
-          fontSize: '26px',
-          justifyContent: 'center',
-          paddingLeft: '0px',
-          paddingTop: '30px',
-          paddingBottom: '30px',
-          margin: '0px',
-        }}
-      >
-        <li>
-          <Link to="/" style={{ color: 'white' }}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/movies" style={{ color: 'white' }}>
-            Movies
-          </Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route />
-        <Route />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />} />
+        <Route path="movies/:movieId/cast" element={<Cast />} />
+        <Route path="movies/:movieId/reviews" element={<Reviews />} />
+      </Route>
+    </Routes>
   );
 };
