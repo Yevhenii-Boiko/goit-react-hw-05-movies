@@ -61,7 +61,7 @@ export async function getMovieReviews(movieId) {
 
 export async function getMoviesSearch(query) {
   const { data } = await axios.get(
-    `/search/movie?language=en-US&page=1&include_adult=false&api_key=${API_KEY}`
+    `/search/movie?query=${query}&language=en-US&page=1&include_adult=false&api_key=${API_KEY}`
   );
   const movies = data.results.map(({ id, original_title }) => ({
     id,

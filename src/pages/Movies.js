@@ -15,7 +15,7 @@ const Movies = () => {
     const getMovies = async () => {
       try {
         // setLoading(true);
-        const movies = getMoviesSearch(query);
+        const movies = await getMoviesSearch(query);
 
         if (!movies.length) {
           // setError('Sorry. There are no movies...');
@@ -58,7 +58,7 @@ const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
-      {<SearchList movies={movies} />}
+      {Movies && <SearchList movies={movies} />}
     </div>
   );
 };
