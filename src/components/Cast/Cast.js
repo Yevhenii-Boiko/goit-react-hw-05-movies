@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'services/Api-Service';
+import { CastItem, CastList } from './Cast.styled';
 
 const Cast = () => {
   // const [isLoading, setIsLoading] = useState(false);
@@ -30,16 +31,16 @@ const Cast = () => {
     <>
       {credits.length === 0 && <h2>We don't have info about casts</h2>}
       {credits && (
-        <ul>
+        <CastList>
           {credits.map(({ id, name, profile_path }) => {
             return (
-              <li key={id}>
+              <CastItem key={id}>
                 <img src={profile_path} alt={name} width="300" />
                 <p>{name}</p>
-              </li>
+              </CastItem>
             );
           })}
-        </ul>
+        </CastList>
       )}
     </>
   );

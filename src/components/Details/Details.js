@@ -1,3 +1,5 @@
+import { DetailsContainer, DetailsText, DetailsTitle } from './Details.styled';
+
 export const Details = ({ movieDetails }) => {
   const {
     poster_path,
@@ -9,19 +11,19 @@ export const Details = ({ movieDetails }) => {
   } = movieDetails;
   return (
     <>
-      <div>
-        <img src={poster_path} alt={original_title} />
+      <DetailsContainer>
+        <img src={poster_path} alt={original_title} width="400" />
         <div>
-          <h2>
+          <DetailsTitle>
             {original_title}({release_date})
-          </h2>
-          <p>User score: {vote_average}</p>
-          <h3>Overview</h3>
-          <p>{overview}</p>
-          <h4>Genres</h4>
-          <p>{genres}</p>
+          </DetailsTitle>
+          <DetailsText>User score: {vote_average}</DetailsText>
+          <h2>Overview</h2>
+          <DetailsText>{overview}</DetailsText>
+          <h2>Genres</h2>
+          <DetailsText>{genres}</DetailsText>
         </div>
-      </div>
+      </DetailsContainer>
     </>
   );
 };

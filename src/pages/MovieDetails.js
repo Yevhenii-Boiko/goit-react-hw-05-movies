@@ -1,4 +1,5 @@
 import { Details } from 'components/Details/Details';
+import { BackLink } from 'components/Details/Details.styled';
 import { Suspense, useRef, useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/Api-Service';
@@ -31,7 +32,7 @@ const MovieDetails = () => {
     <>
       {movieDetails && (
         <div>
-          <Link to={backLinkLocationRef.current}>Go back</Link>
+          <BackLink to={backLinkLocationRef.current}>Go back</BackLink>
           <Details movieDetails={movieDetails} />
           <div>
             <h2>Additional information</h2>
