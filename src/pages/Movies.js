@@ -3,6 +3,7 @@ import { SearchList } from 'components/SearchList/SearchList';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesSearch } from 'services/Api-Service';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -18,6 +19,12 @@ const Movies = () => {
         const movies = await getMoviesSearch(query);
 
         if (!movies.length) {
+          toast.error(
+            'Sorry, there are no films matching your search query. Please change you query request',
+            {
+              duration: 3000,
+            }
+          );
           // setError('Sorry. There are no movies...');
           return;
         }
@@ -43,6 +50,12 @@ const Movies = () => {
 
   return (
     <div>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 1500,
+        }}
+      />
       <form onSubmit={handleSubmit}>
         <DebounceInput
           minLength={2}
