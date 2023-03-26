@@ -67,7 +67,6 @@ export async function getMoviesSearch(query) {
     id,
     original_title,
   }));
-  console.log(movies);
   return movies;
 }
 

@@ -1,3 +1,4 @@
+import { DebounceInput } from 'react-debounce-input';
 import { SearchList } from 'components/SearchList/SearchList';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -43,7 +44,9 @@ const Movies = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
+        <DebounceInput
+          minLength={2}
+          debounceTimeout={1000}
           type="text"
           name="query"
           value={query}
@@ -51,7 +54,6 @@ const Movies = () => {
           autoFocus
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
       </form>
       {Movies && <SearchList movies={movies} />}
     </div>

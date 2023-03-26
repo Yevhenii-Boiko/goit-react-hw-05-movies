@@ -1,3 +1,4 @@
+import { MovieTitle } from 'components/SearchList/SearchList.styled';
 import { Link, useLocation } from 'react-router-dom';
 
 const TrendingMoviesList = ({ movies }) => {
@@ -10,7 +11,7 @@ const TrendingMoviesList = ({ movies }) => {
         {movies.map(({ id, original_title }) => (
           <li key={id}>
             <Link to={`movies/${id}`} state={{ from: location }}>
-              <p>{original_title}</p>
+              <MovieTitle>{original_title}</MovieTitle>
             </Link>
           </li>
         ))}

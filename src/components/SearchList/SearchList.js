@@ -1,4 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
+import { MovieTitle } from './SearchList.styled';
 
 export const SearchList = ({ movies }) => {
   const location = useLocation();
@@ -9,7 +10,7 @@ export const SearchList = ({ movies }) => {
         {movies.map(({ id, original_title }) => (
           <li key={id}>
             <Link to={`${id}`} state={{ from: location }}>
-              <p>{original_title}</p>
+              <MovieTitle>{original_title}</MovieTitle>
             </Link>
           </li>
         ))}
