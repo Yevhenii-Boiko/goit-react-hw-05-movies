@@ -1,7 +1,11 @@
 import { Details } from 'components/Details/Details';
-import { BackLink } from 'components/Details/Details.styled';
+import {
+  BackLink,
+  InfoLink,
+  InfoContainer,
+} from 'components/Details/Details.styled';
 import { Suspense, useRef, useState, useEffect } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/Api-Service';
 
 const MovieDetails = () => {
@@ -15,14 +19,10 @@ const MovieDetails = () => {
     if (!movieId) return;
     const getDetailsById = async movieId => {
       try {
-        // setLoading(true);
         const movieDetails = await getMovieDetails(movieId);
         setMovieDetails(movieDetails);
-        // setError('');
       } catch (error) {
-        // setError('Oops. Somethig went wrong');
       } finally {
-        // setLoading(false);
       }
     };
     getDetailsById(movieId);
@@ -36,14 +36,14 @@ const MovieDetails = () => {
           <Details movieDetails={movieDetails} />
           <div>
             <h2>Additional information</h2>
-            <ul>
+            <InfoContainer>
               <li>
-                <Link to="cast">Cast</Link>
+                <InfoLink to="cast">Cast</InfoLink>
               </li>
               <li>
-                <Link to="reviews">Reviews</Link>
+                <InfoLink to="reviews">Reviews</InfoLink>
               </li>
-            </ul>
+            </InfoContainer>
           </div>
         </div>
       )}

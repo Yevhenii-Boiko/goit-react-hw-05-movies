@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/Api-Service';
+import { Author, Content } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +13,6 @@ const Reviews = () => {
       try {
         const reviews = await getMovieReviews(movieId);
         setReviews(reviews);
-        console.log(reviews);
       } catch (error) {
       } finally {
       }
@@ -22,13 +22,14 @@ const Reviews = () => {
 
   return (
     <>
+      {reviews.length === 0 && <h2>Your review will be the first...</h2>}
       {reviews && (
         <ul>
           {reviews.map(({ id, author, content }) => {
             return (
               <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
+                <Author>Author: {author}</Author>
+                <Content>{content}</Content>
               </li>
             );
           })}

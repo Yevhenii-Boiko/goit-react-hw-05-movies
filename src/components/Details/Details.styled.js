@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 export const BackLink = styled(Link)`
   color: black;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 4px;
 
   :hover {
-    color: orangered;
+    color: white;
+    background-color: orangered;
   }
 `;
 
@@ -31,4 +34,26 @@ export const DetailsTitle = styled.h2`
 export const DetailsText = styled.p`
   font-size: 16px;
   margin-bottom: 15px;
+  text-align: justify;
+`;
+
+export const InfoContainer = styled.ul`
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+`;
+
+export const InfoLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  :hover {
+    color: white;
+    background-color: orangered;
+  }
 `;

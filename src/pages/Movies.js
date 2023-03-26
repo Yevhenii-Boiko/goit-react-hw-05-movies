@@ -14,7 +14,6 @@ const Movies = () => {
 
     const getMovies = async () => {
       try {
-        // setLoading(true);
         const movies = await getMoviesSearch(query);
 
         if (!movies.length) {
@@ -22,11 +21,8 @@ const Movies = () => {
           return;
         }
         setMovies(movies);
-        // setError('');
       } catch (error) {
-        // setError('Oops. Something went wrong');
       } finally {
-        // setLoading(false);
       }
     };
     getMovies();
@@ -42,7 +38,6 @@ const Movies = () => {
       return setSearchParams({});
     }
     setSearchParams({ query });
-    console.log(query);
   };
 
   return (

@@ -4,7 +4,6 @@ import { getMovieCast } from 'services/Api-Service';
 import { CastItem, CastList } from './Cast.styled';
 
 const Cast = () => {
-  // const [isLoading, setIsLoading] = useState(false);
   const [credits, setCredits] = useState([]);
   const { movieId } = useParams();
 
@@ -13,15 +12,10 @@ const Cast = () => {
 
     const getCredits = async movieId => {
       try {
-        // setIsLoading(true);
         const credits = await getMovieCast(movieId);
         setCredits(credits);
-        console.log(credits);
-        // setError('');
       } catch (error) {
-        // setError('Oops. Something went wrong');
       } finally {
-        // setIsLoading(false);
       }
     };
     getCredits(movieId);

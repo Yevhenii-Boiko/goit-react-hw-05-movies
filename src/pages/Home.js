@@ -8,14 +8,10 @@ const Home = () => {
   useEffect(() => {
     const getMovies = async () => {
       try {
-        // setLoading(true);
         const data = await getTrending();
         setMovies(data);
-        // setError('');
       } catch (error) {
-        // setError('Oops. Something went wrong...');
       } finally {
-        // setLoading(false);
       }
     };
     getMovies();
